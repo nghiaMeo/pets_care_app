@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:pets_care_app/screens/profile/profile_screen.dart';
 
+import '../../../common/helper/app_navigator.dart';
 import '../../../core/assets/app_images.dart';
 import '../../../core/assets/app_vectors.dart';
 import '../../../core/theme/app_colors.dart';
@@ -26,7 +28,7 @@ class HeaderWidget extends StatelessWidget {
   Widget _buildProfileImage(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // AppNavigator.push(context,);
+        AppNavigator.push(context, ProfileScreen());
       },
       child: Container(
         height: 40,

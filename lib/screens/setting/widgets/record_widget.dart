@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:pets_care_app/common/helper/app_dialog.dart';
 import 'package:pets_care_app/widgets/icons_button_widget.dart';
 
 import '../../../core/theme/app_colors.dart';
@@ -43,15 +44,29 @@ class RecordWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const RichTextWidget(
-
-                title: 'Recording: ', titleOnPress: '',
+                title: 'Recording: ',
+                titleOnPress: '',
               ),
               IconsButtonWidget(
                 icon: Icons.mic_none_outlined,
                 color: Colors.white,
                 backgroundColor: Colors.deepOrange,
                 onTap: () {
-                  log("recording");
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AppDialog(
+                        title: 'Recording',
+                        description: 'Speak loudly and clearly',
+                        onConfirm: () {
+                          Navigator.of(context).pop();
+                        },
+                        onCancel: () {
+                          Navigator.of(context).pop();
+                        },
+                      );
+                    },
+                  );
                 },
               ),
             ],
@@ -61,15 +76,14 @@ class RecordWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const RichTextWidget(
-
-                title: 'Play Recording: ', titleOnPress: '',
+                title: 'Play Recording: ',
+                titleOnPress: '',
               ),
               IconsButtonWidget(
                 icon: Icons.play_circle,
                 color: Colors.white,
                 backgroundColor: Colors.orangeAccent,
                 onTap: () {
-                  log("play recording");
                 },
               ),
             ],

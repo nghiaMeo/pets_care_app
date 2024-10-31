@@ -10,7 +10,6 @@ class WaterPumpWidget extends StatefulWidget {
 }
 
 class _WaterPumpWidgetState extends State<WaterPumpWidget> {
-  bool isSwitched = false;
   bool isSwitchedAuto = false;
 
   @override
@@ -36,25 +35,7 @@ class _WaterPumpWidgetState extends State<WaterPumpWidget> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const Text(
-                "Water pump",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-              Switch(
-                value: isSwitched,
-                onChanged: (bool value) {
-                  setState(() {
-                    isSwitched = value;
-                  });
-                },
-                activeColor: Colors.orange,
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Text(
-                "Water pump Automation",
+                "Water Pump",
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               Switch(

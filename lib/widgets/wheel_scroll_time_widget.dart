@@ -14,68 +14,77 @@ class WheelScrollTimeWidget extends StatefulWidget {
 class _WheelScrollTimeWidgetState extends State<WheelScrollTimeWidget> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // color: Colors.grey[500],
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          // hour
-          SizedBox(
-            width: 70,
-            child: ListWheelScrollView.useDelegate(
-              // onSelectedItemChanged: (value) => print(value),
-              itemExtent: 50,
-              perspective: 0.005,
-              diameterRatio: 1.2,
-              physics: const FixedExtentScrollPhysics(),
-              childDelegate: ListWheelChildBuilderDelegate(
-                childCount: 13,
-                builder: (context, index) {
-                  return _buildHours(hour: index);
-                },
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        const SizedBox(height: 20),
+        const Text("Setting time",
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 20
+        ),),
+        Expanded(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // hour
+              SizedBox(
+                width: 70,
+                child: ListWheelScrollView.useDelegate(
+                  itemExtent: 50,
+                  perspective: 0.005,
+                  diameterRatio: 1.2,
+                  physics: const FixedExtentScrollPhysics(),
+                  childDelegate: ListWheelChildBuilderDelegate(
+                    childCount: 13,
+                    builder: (context, index) {
+                      return _buildHours(hour: index);
+                    },
+                  ),
+                ),
               ),
-            ),
-          ),
-          const SizedBox(height: 10),
-          // minutes
-          SizedBox(
-            width: 70,
-            child: ListWheelScrollView.useDelegate(
-              itemExtent: 50,
-              perspective: 0.005,
-              diameterRatio: 1.2,
-              physics: const FixedExtentScrollPhysics(),
-              childDelegate: ListWheelChildBuilderDelegate(
-                childCount: 60,
-                builder: (context, index) {
-                  return _buildMinutes(minute: index);
-                },
+              const SizedBox(height: 10),
+              // minutes
+              SizedBox(
+                width: 70,
+                child: ListWheelScrollView.useDelegate(
+                  itemExtent: 50,
+                  perspective: 0.005,
+                  diameterRatio: 1.2,
+                  physics: const FixedExtentScrollPhysics(),
+                  childDelegate: ListWheelChildBuilderDelegate(
+                    childCount: 60,
+                    builder: (context, index) {
+                      return _buildMinutes(minute: index);
+                    },
+                  ),
+                ),
               ),
-            ),
-          ),
-          const SizedBox(height: 10),
-          // AM or PM
-          SizedBox(
-            width: 70,
-            child: ListWheelScrollView.useDelegate(
-              itemExtent: 50,
-              perspective: 0.005,
-              diameterRatio: 1.2,
-              physics: const FixedExtentScrollPhysics(),
-              childDelegate: ListWheelChildBuilderDelegate(
-                childCount: 2,
-                builder: (context, index) {
-                  if (index == 0) {
-                    return _buildAmOrPm(isItAm: true);
-                  } else {
-                    return _buildAmOrPm(isItAm: false);
-                  }
-                },
+              const SizedBox(height: 10),
+              // AM or PM
+              SizedBox(
+                width: 70,
+                child: ListWheelScrollView.useDelegate(
+                  itemExtent: 50,
+                  perspective: 0.005,
+                  diameterRatio: 1.2,
+                  physics: const FixedExtentScrollPhysics(),
+                  childDelegate: ListWheelChildBuilderDelegate(
+                    childCount: 2,
+                    builder: (context, index) {
+                      if (index == 0) {
+                        return _buildAmOrPm(isItAm: true);
+                      } else {
+                        return _buildAmOrPm(isItAm: false);
+                      }
+                    },
+                  ),
+                ),
               ),
-            ),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 

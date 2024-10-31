@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pets_care_app/screens/setting/widgets/record_widget.dart';
 import 'package:pets_care_app/screens/setting/widgets/time_food_widget.dart';
-import 'package:pets_care_app/screens/setting/widgets/food_volume_widget.dart';
+import 'package:pets_care_app/screens/setting/widgets/light_control_widget.dart';
 import 'package:pets_care_app/screens/setting/widgets/water_pump_widget.dart';
 
-import '../../common/helper/app_navigator.dart';
 import '../../core/theme/app_colors.dart';
 import '../../widgets/app_bar_widget.dart';
 import '../../widgets/basic_app_button.dart';
@@ -37,7 +36,7 @@ class AutoSettingScreen extends StatelessWidget {
                     const SizedBox(height: 10),
                     const TimeFoodWidget(),
                     const SizedBox(height: 20),
-                    const FoodVolumeWidget(),
+                    const LightControlWidget(),
                     const SizedBox(height: 20),
                     const WaterPumpWidget(),
                     const SizedBox(height: 20),

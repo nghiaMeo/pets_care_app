@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../widgets/basic_app_button.dart';
 
-class ManualWidget extends StatefulWidget {
-  const ManualWidget({super.key});
+class ManualLightControlWidget extends StatefulWidget {
+  const ManualLightControlWidget({super.key});
 
   @override
-  State<ManualWidget> createState() => _ManualWidgetState();
+  State<ManualLightControlWidget> createState() => _ManualLightControlWidgetState();
 }
 
-class _ManualWidgetState extends State<ManualWidget> {
+class _ManualLightControlWidgetState extends State<ManualLightControlWidget> {
   bool _isToggled = false;
 
   void _toggleButton() {
@@ -39,7 +39,7 @@ class _ManualWidgetState extends State<ManualWidget> {
       child: Column(
         children: <Widget>[
           const Text(
-            "Push Food",
+            "Light Control",
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 18,
@@ -61,7 +61,7 @@ class _ManualWidgetState extends State<ManualWidget> {
           minimumSize:  Size(MediaQuery.of(context).size.width, 50),
         ),
         child: Text(
-          _isToggled ? 'Pushing' : 'Turn Off', // Đổi chữ
+          _isToggled ? 'Turning on' : 'Turn Off', // Đổi chữ
           style: const TextStyle(color: Colors.white),
         ));
   }

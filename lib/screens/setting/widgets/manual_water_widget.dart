@@ -42,7 +42,7 @@ class _ManualWidgetState extends State<ManualWaterWidget> {
             "Water Pump",
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 20,
+              fontSize: 18,
             ),
           ),
           const Text("After 15 minutes system water pump is closed"),

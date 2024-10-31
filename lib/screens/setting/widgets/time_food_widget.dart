@@ -1,9 +1,10 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:pets_care_app/common/app_bottom_sheet.dart';
 import 'package:pets_care_app/widgets/rich_text_widget.dart';
-import 'package:pets_care_app/widgets/wheel_scroll_time_widget.dart';
+import 'package:pets_care_app/widgets/wheel_scroll_food_widget.dart';
+import 'package:pets_care_app/widgets/wheel_scroll_number_time_widget.dart';
+import 'package:pets_care_app/widgets/wheel_scroll_times_widget.dart';
 
 import '../../../core/theme/app_colors.dart';
 import '../../../widgets/icons_button_widget.dart';
@@ -34,7 +35,7 @@ class TimeFoodWidget extends StatelessWidget {
             "Pet feeding time",
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 20,
+              fontSize: 18,
             ),
           ),
           const SizedBox(
@@ -45,14 +46,14 @@ class TimeFoodWidget extends StatelessWidget {
             children: [
               const RichTextWidget(
 
-                title: 'Morning: ', titleOnPress: '08:10 AM',
+                title: 'Number of times: ', titleOnPress: '08',
               ),
               IconsButtonWidget(
                 icon: Icons.settings,
                 color: Colors.white,
                 backgroundColor: Colors.grey,
                 onTap: () {
-                  AppBottomSheet.display(context, const WheelScrollTimeWidget());
+                  AppBottomSheet.display(context, const WheelScrollNumberTimeWidget ());
 
                 },
               ),
@@ -64,14 +65,14 @@ class TimeFoodWidget extends StatelessWidget {
             children: [
               const RichTextWidget(
 
-                 title: 'Afternoon: ', titleOnPress: '12:00 AM',
+                 title: 'Volume per serving: ', titleOnPress: '50 g',
               ),
               IconsButtonWidget(
                 icon: Icons.settings,
                 color: Colors.white,
                 backgroundColor: Colors.grey,
                 onTap: () {
-                  AppBottomSheet.display(context, const WheelScrollTimeWidget());
+                  AppBottomSheet.display(context, const WheelScrollFoodWidget());
                 },
               ),
             ],
@@ -81,14 +82,14 @@ class TimeFoodWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const RichTextWidget(
-                title: 'Evening: ', titleOnPress: '08:30 PM',
+                title: 'Feeding interval: ', titleOnPress: '04 hours 30 minutes',
               ),
               IconsButtonWidget(
                 icon: Icons.settings,
                 color: Colors.white,
                 backgroundColor: Colors.grey,
                 onTap: () {
-                  AppBottomSheet.display(context, const WheelScrollTimeWidget());
+                  AppBottomSheet.display(context, const WheelScrollTimesWidget());
                 },
               ),
             ],

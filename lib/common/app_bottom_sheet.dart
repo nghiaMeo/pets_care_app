@@ -5,6 +5,7 @@ class AppBottomSheet {
   static Future<void> display(BuildContext context,Widget widget) {
     return showModalBottomSheet(
         context: context,
+        useSafeArea: true,
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
                 topRight: Radius.circular(25),

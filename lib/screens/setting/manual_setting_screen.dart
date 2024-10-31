@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:pets_care_app/screens/setting/widgets/manual_light_control_widget.dart';
 import 'package:pets_care_app/screens/setting/widgets/manual_water_widget.dart';
 import 'package:pets_care_app/screens/setting/widgets/manual_widget.dart';
 import 'package:pets_care_app/screens/setting/widgets/record_widget.dart';
 import 'package:pets_care_app/screens/setting/widgets/time_food_widget.dart';
-import 'package:pets_care_app/screens/setting/widgets/food_volume_widget.dart';
+import 'package:pets_care_app/screens/setting/widgets/light_control_widget.dart';
 import 'package:pets_care_app/screens/setting/widgets/water_pump_widget.dart';
 
 import '../../core/theme/app_colors.dart';
@@ -37,8 +38,9 @@ class ManualSettingScreen extends StatelessWidget {
                     SizedBox(height: 10),
                     ManualWidget(),
                     SizedBox(height: 20),
-                    ManualWaterWidget()
-                    // SizedBox(height: 20),
+                    ManualWaterWidget(),
+                    SizedBox(height: 20),
+                    ManualLightControlWidget()
                   ],
                 )
               ])
@@ -48,5 +50,7 @@ class ManualSettingScreen extends StatelessWidget {
       ),
     );
   }
+
+
 
 }

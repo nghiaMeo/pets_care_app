@@ -51,7 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     const SizedBox(height: 20),
                     const RichTextWidget(
                       title: "Forget Password? ",
-                      titleOnPress: 'Rest',
+                      titleOnPress: 'Reset',
                       onPage: ForgotPasswordScreen(),
                     ),
                     const SizedBox(height: 20),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pets_care_app/screens/follow/widgets/cat_eat_day_widget.dart';
+import 'package:pets_care_app/screens/follow/widgets/daily_meal_count_statistics_widget.dart';
 import 'package:pets_care_app/screens/setting/manual_setting_screen.dart';
 import 'package:pets_care_app/widgets/rich_text_widget.dart';
 
@@ -30,18 +32,22 @@ class FollowPetsScreen extends StatelessWidget {
               SliverList.list(children: [
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
+                  children: <Widget>[
                     const SizedBox(height: 10),
                     _buildLivePets(),
                     const SizedBox(height: 10),
-                    _buildInformationLivePets(),
+                    const SizedBox(height: 20),
+                    const CatEatDayWidget(),
+                    const SizedBox(height: 20),
+                    const DailyMealCountStatisticsWidget(),
                     const SizedBox(height: 20),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Expanded(child: _buildPressButtonAuto(context)),
                         const SizedBox(width: 10),
-                        Expanded(child: _buildPressButtonManual(context))
+                        Expanded(child: _buildPressButtonManual(context)),
+
                       ],
                     )
                   ],
@@ -76,57 +82,6 @@ class FollowPetsScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildInformationLivePets() {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      width: 500,
-      decoration: BoxDecoration(
-        color: AppColors.primary.withOpacity(0.5),
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.2),
-            spreadRadius: 5,
-            blurRadius: 15,
-            offset: const Offset(0, 5),
-          ),
-        ],
-      ),
-      child: const Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "Information Pet",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
-            ),
-          ),
-          SizedBox(
-            height: 5,
-          ),
-          RichTextWidget(
-            title: "Number of times your cat eats per day: ",
-            titleOnPress: "3",
-          ),
-          SizedBox(
-            height: 5,
-          ),
-          RichTextWidget(
-            title: "Amount of food stored: ",
-            titleOnPress: "is Full",
-          ),
-          SizedBox(
-            height: 5,
-          ),
-          RichTextWidget(
-            title: "reserve water: ",
-            titleOnPress: "3",
-          ),
-        ],
-      ),
-    );
-  }
 
   Widget _buildPressButtonAuto(BuildContext context) {
     return BasicAppButton(

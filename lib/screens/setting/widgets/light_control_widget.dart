@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:pets_care_app/widgets/wheel_scroll_water_widget.dart';
+import 'package:pets_care_app/widgets/wheel_scroll_time_system_widget.dart';
 
 import '../../../common/app_bottom_sheet.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../widgets/icons_button_widget.dart';
 import '../../../widgets/rich_text_widget.dart';
-import '../../../widgets/wheel_scroll_number_time_widget.dart';
-import '../../../widgets/wheel_scroll_times_widget.dart';
 
-class WaterPumpWidget extends StatelessWidget {
-  const WaterPumpWidget({super.key});
+class LightControlWidget extends StatefulWidget {
+  const LightControlWidget({super.key});
+
+  @override
+  State<LightControlWidget> createState() => _ElectricalSystemWidgetState();
+}
+
+class _ElectricalSystemWidgetState extends State<LightControlWidget> {
+  String? selectedOption;
 
   @override
   Widget build(BuildContext context) {
@@ -29,32 +34,28 @@ class WaterPumpWidget extends StatelessWidget {
         ],
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const Text(
-            "Water pump",
+            "Light Control",
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 18,
             ),
           ),
-          const SizedBox(
-            height: 5,
-          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const RichTextWidget(
-
-                title: 'Number of times: ', titleOnPress: '08',
+                title: 'On times: ',
+                titleOnPress: '06:00 AM',
               ),
               IconsButtonWidget(
                 icon: Icons.settings,
                 color: Colors.white,
                 backgroundColor: Colors.grey,
                 onTap: () {
-                  AppBottomSheet.display(context, const WheelScrollNumberTimeWidget ());
-
+                  AppBottomSheet.display(
+                      context, const WheelScrollTimeSystemWidget());
                 },
               ),
             ],
@@ -64,39 +65,45 @@ class WaterPumpWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const RichTextWidget(
-
-                title: 'Water volume per pump: ', titleOnPress: '50 ml',
+                title: 'Off times: ',
+                titleOnPress: '11:00 PM',
               ),
               IconsButtonWidget(
                 icon: Icons.settings,
                 color: Colors.white,
                 backgroundColor: Colors.grey,
                 onTap: () {
-                  AppBottomSheet.display(context, const WheelScrollWaterWidget());
+                  AppBottomSheet.display(
+                      context, const WheelScrollTimeSystemWidget());
                 },
               ),
             ],
           ),
           const SizedBox(height: 5),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const RichTextWidget(
-                title: 'Water pumping interval: ', titleOnPress: '04 hours 30 minutes',
-              ),
-              IconsButtonWidget(
-                icon: Icons.settings,
-                color: Colors.white,
-                backgroundColor: Colors.grey,
-                onTap: () {
-                  AppBottomSheet.display(context, const WheelScrollTimesWidget());
-                },
-              ),
-            ],
-          ),
-          const SizedBox(height: 10),
         ],
       ),
+    );
+  }
+
+  Widget _buildCheckboxOption({
+    required String title,
+    required String value,
+  }) {
+    return Row(
+      children: [
+        Checkbox(
+          value: selectedOption == value,
+          activeColor: Colors.orange,
+          onChanged: (bool? newValue) {
+            if (newValue == true) {
+              setState(() {
+                selectedOption = value;
+              });
+            }
+          },
+        ),
+        Text(title),
+      ],
     );
   }
 }

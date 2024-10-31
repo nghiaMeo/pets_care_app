@@ -87,7 +87,10 @@ class _WheelScrollTimesSystemWidgetState extends State<WheelScrollTimeSystemWidg
                 ),
               ],
             ),
+
           ),
+          _buildPressDoneButton(),
+          const SizedBox(height: 10)
         ],
       ),
     );
@@ -128,6 +131,13 @@ class _WheelScrollTimesSystemWidgetState extends State<WheelScrollTimeSystemWidg
           style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
       ),
+    );
+  }
+
+  Widget _buildPressDoneButton() {
+    return BasicAppButton(
+      onPressed: () {},
+      title: "Done",
     );
   }
 }

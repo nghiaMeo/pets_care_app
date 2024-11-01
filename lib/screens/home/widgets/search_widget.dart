@@ -2,7 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../../common/helper/app_navigator.dart';
 import '../../../core/assets/app_vectors.dart';
+import '../../search/search_screen.dart';
 
 class SearchWidget extends StatelessWidget {
   const SearchWidget({super.key});
@@ -14,7 +16,7 @@ class SearchWidget extends StatelessWidget {
       child: TextField(
         readOnly: true,
         onTap: () {
-          // AppNavigator.push(context, SearchPage());
+          AppNavigator.push(context, const SearchScreen());
         },
         decoration: InputDecoration(
             contentPadding: const EdgeInsets.all(12),

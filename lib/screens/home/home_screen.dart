@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:pets_care_app/core/theme/app_colors.dart';
 import 'package:pets_care_app/screens/home/widgets/banner_widget.dart';
 import 'package:pets_care_app/screens/home/widgets/category_widget.dart';
+import 'package:pets_care_app/screens/home/widgets/food_widget.dart';
 import 'package:pets_care_app/screens/home/widgets/header_widget.dart';
 import 'package:pets_care_app/screens/home/widgets/search_widget.dart';
+import 'package:pets_care_app/screens/home/widgets/services_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -25,8 +27,11 @@ class HomeScreen extends StatelessWidget {
                   BannerWidget(),
                   SizedBox(height: 20),
                   CategoryWidget(),
-                  // SizedBox(height: 20),
-                  // NewInWidget(),
+                  SizedBox(height: 20),
+                  FoodWidget(),
+                  SizedBox(height: 20),
+                  ServicesWidget(),
+                  SizedBox(height: 20)
                 ],
               )
             ])

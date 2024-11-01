@@ -1,6 +1,7 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:pets_care_app/common/helper/app_navigator.dart';
+import 'package:pets_care_app/screens/profile/wish_list_screen.dart';
 
 import '../../../core/theme/app_colors.dart';
 
@@ -11,7 +12,7 @@ class WishListWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        log("Wish List");
+        AppNavigator.push(context, const WishListScreen());
       },
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16),

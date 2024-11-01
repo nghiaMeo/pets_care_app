@@ -1,6 +1,8 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:pets_care_app/common/helper/app_navigator.dart';
+import 'package:pets_care_app/screens/profile/update_user_screen.dart';
 
 import '../../../core/theme/app_colors.dart';
 
@@ -11,7 +13,14 @@ class MyAccountWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        log("My ACCOUNT");
+        AppNavigator.push(context, UpdateUserScreen(
+          initialFirstName: 'John',
+          initialLastName: 'Doe',
+          initialEmail: 'john.doe@example.com',
+          initialContactInfo: '123-456-7890',
+          initialAddress: '123 Main St, City',
+          initialNumberOfCats: 2,
+        ),);
       },
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16),
